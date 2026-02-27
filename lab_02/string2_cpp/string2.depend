@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1771932283 source:c:\users\user\desktop\lab_02\string2_cpp\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1771932283 c:\users\user\desktop\lab_02\string2_cpp\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<list>
+	<map>
+	<algorithm>
+	<functional>
+	<memory>
+	<iomanip>
+	<locale>
+	<typeinfo>
+	<ostream>
+	<stdexcept>
+	<ctime>
+	<random>
+	<iterator>
+	<regex>
+
+1771932283 source:c:\users\user\desktop\lab_02\string2_cpp\string2_main.cpp
+	<cstring>
+	"memtrace.h"
+	"gtest_lite.h"
+	"string2.h"
+
+1771932283 c:\users\user\desktop\lab_02\string2_cpp\gtest_lite.h
+	<iostream>
+	<cassert>
+	<cmath>
+	<cstring>
+	<limits>
+	<string>
+	<fstream>
+	"memtrace.h"
+
+1771937076 c:\users\user\desktop\lab_02\string2_cpp\string2.h
+
+1771937022 source:c:\users\user\desktop\lab_02\string2_cpp\string2.cpp
+	<iostream>
+	<cstring>
+	"string2.h"
+	"memtrace.h"
+	"string2.h"
+

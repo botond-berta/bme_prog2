@@ -1,0 +1,9 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "c:\\Users\\User\\Desktop\\lab_02\\string1",
+            "binaryPath": "c:\\Users\\User\\Desktop\\lab_02\\string1\\string1",
+            "binaryArgs": []
+        }
+    ]
+}

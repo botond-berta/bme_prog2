@@ -1,0 +1,145 @@
+TJ0Z3R
+
+3. g++ --help:
+Kiírja a használható kapcsolókat és a magyarázatukat min például: -E (csak preprocesszál); -S (csak fordít); -c (nem linkel)
+
+4. g++ -E main.cpp:
+A forráskódban a #include <stdio.h> helyére a preprocesszor behelyettesíti az iostreamhez tartozó tartalmat.
+
+5. g++ -E gy.cpp:
+A kimenet a gyümölcsök nevei számokra lecserélve: "0,1,1,2,0,0 ..."
+
+6.:
+User@BB-L14 UCRT64 /home
+$ g++ -c main2.cpp
+
+User@BB-L14 UCRT64 /home
+$ g++ -c foo.cpp
+
+User@BB-L14 UCRT64 /home
+$ ls
+User  foo.cpp  foo.o  gy.cpp  main.cpp  main2.cpp  main2.o
+
+7.:
+User@BB-L14 UCRT64 /home
+$ g++ main2.o foo.o -o main2
+
+User@BB-L14 UCRT64 /home
+$ ./main2
+Hello
+
+9.
+Include guard-al:
+User@BB-L14 UCRT64 /home
+$ g++ -E main3.cpp
+# 0 "main3.cpp"
+# 0 "<built-in>"
+# 0 "<command-line>"
+# 1 "main3.cpp"
+
+# 1 "bar.h" 1
+
+
+
+
+void bar() { }
+# 3 "main3.cpp" 2
+
+int main() {
+        return 0;
+}
+
+Include guard nélkül:
+User@BB-L14 UCRT64 /home
+$ g++ -E main3.cpp
+# 0 "main3.cpp"
+# 0 "<built-in>"
+# 0 "<command-line>"
+# 1 "main3.cpp"
+
+# 1 "bar.h" 1
+
+
+
+
+void bar() { }
+# 3 "main3.cpp" 2
+# 1 "bar.h" 1
+
+
+
+
+void bar() { }
+# 4 "main3.cpp" 2
+int main() {
+        return 0;
+}
+
+Konklúzió: Az include guard használata nélkül kétszer definiáljuk a függvényt.
+
+10. A probléma abból adódhat, hogy az 'a' változó nem kapott kezdeti értéket és megpróbáljuk kiíratni.
+
+g++ -Wall -o warnings warnings.cpp:
+User@BB-L14 UCRT64 /home
+$ g++ -Wall -o warnings warnings.cpp
+warnings.cpp: In function 'int main()':
+warnings.cpp:4:22: warning: 'a' is used uninitialized [-Wuninitialized]
+    4 |         std::cout << a << std::endl;
+      |                      ^
+warnings.cpp:3:13: note: 'a' was declared here
+    3 |         int a;
+      |             ^
+
+Konklúzió: Ezt a figyelmeztető üzenetet vártuk.
+
+11.
+-g: Extra debug információ használatát teszi lehetővé. Pl.: Változónevek, függvénynevek...
+-Werror: Minden figyelmeztetést hibaként kezel.
+-O0: Optimalizáció nélkül fordul a kód.
+
+12.
+
+g++ -std=c++98 -o auto auto.cpp:
+
+User@BB-L14 UCRT64 /home
+$ g++ -std=c++98 -o auto auto.cpp
+auto.cpp: In function 'int main()':
+auto.cpp:4:14: error: 'i' does not name a type
+    4 |         auto i = 10 + 2;
+      |              ^
+auto.cpp:5:22: error: 'i' was not declared in this scope
+    5 |         std::cout << i << std::endl;
+      |                      ^
+
+
+g++ -std=c++03 -o auto auto.cpp:
+
+User@BB-L14 UCRT64 /home
+$ g++ -std=c++03 -o auto auto.cpp
+auto.cpp: In function 'int main()':
+auto.cpp:4:14: error: 'i' does not name a type
+    4 |         auto i = 10 + 2;
+      |              ^
+auto.cpp:5:22: error: 'i' was not declared in this scope
+    5 |         std::cout << i << std::endl;
+      |                      ^
+
+
+g++ -std=c++11 -o auto auto.cpp:
+
+User@BB-L14 UCRT64 /home
+$ g++ -std=c++11 -o auto auto.cpp
+
+User@BB-L14 UCRT64 /home
+$
+
+A C++11 -nél nem kapunk hibát így valószínűleg ebben a verzióban jelent meg az auto kulcsszó.
+
+g++ -std=c++14 -o auto auto.cpp:
+
+User@BB-L14 UCRT64 /home
+$ g++ -std=c++14 -o auto auto.cpp
+
+User@BB-L14 UCRT64 /home
+$
+

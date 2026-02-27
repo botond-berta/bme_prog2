@@ -1,0 +1,37 @@
+# depslib dependency file v1.0
+1771537407 source:c:\users\user\desktop\prog2_lab1\cppswap\memtrace.cpp
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<time.h>
+	<ctype.h>
+	"memtrace.h"
+
+1771537407 c:\users\user\desktop\prog2_lab1\cppswap\memtrace.h
+	<new>
+	<cstdio>
+	<stdlib.h>
+	<iostream>
+	<fstream>
+	<sstream>
+	<vector>
+	<algorithm>
+
+1771537407 source:c:\users\user\desktop\prog2_lab1\cppswap\swap_test.cpp
+	<iostream>
+	"gtest_lite.h"
+	"swap.h"
+
+1771537407 c:\users\user\desktop\prog2_lab1\cppswap\gtest_lite.h
+	<iostream>
+	<cassert>
+	<cmath>
+	<cstring>
+	<limits>
+	<string>
+	<fstream>
+	"memtrace.h"
+
+1771537407 c:\users\user\desktop\prog2_lab1\cppswap\swap.h
+	"memtrace.h"
+
