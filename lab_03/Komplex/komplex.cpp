@@ -104,3 +104,16 @@ Komplex& Komplex::operator+=(const Komplex& rhs_k) {
     this->im = this->im + rhs_k.getIm();
     return *this;
 }
+
+std::ostream& operator<<(std::ostream &os, const Komplex& rhs_k) {
+    os << rhs_k.getRe() << "+" << rhs_k.getIm() << "j" << std::endl;
+    return os;
+}
+
+std::istream& operator>>(std::istream &is, Komplex& rhs_k) {
+    double re, im;
+    is >> re >> im;
+    rhs_k.setRe(re);
+    rhs_k.setIm(im);
+    return is;
+}
