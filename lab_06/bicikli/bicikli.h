@@ -1,6 +1,7 @@
+#ifndef BICIKLI_H
+#define BICIKLI_H
+
 #include <iostream>
-/// Utasítást kiíró és végrehajtó makró
-#define _(x)  std::cout << #x << std::endl; x
 
 class Kerek {
     int atmero;
@@ -8,7 +9,7 @@ public:
     Kerek(int a) : atmero(a) {
         std::cout << "\tKerek ctor\n";
     }
-    ~Kerek() {
+    virtual ~Kerek() {
         std::cout << "\tKerek dtor\n";
     }
     void kiir() {
@@ -16,23 +17,6 @@ public:
     }
     Kerek(const Kerek& k) : atmero(k.atmero) {
         std::cout << " \tKerek copy\n";
-    }
-};
-
-class Monocikli {
-    Kerek k;
-public:
-    Monocikli() : k(16) {
-        std::cout << "\tMonocikli ctor\n";
-    }
-    /*~Monocikli() {
-        std::cout << "\tMonocikli dtor\n";
-    }*/
-    void kiir() {
-        std::cout << "\tk."; k.kiir();
-    }
-    Monocikli(const Monocikli& m) : k(m.k) {
-        std::cout << "\tMonocikli copy\n";
     }
 };
 
@@ -68,15 +52,19 @@ class Bicikli : public Jarmu {
     Kerek elso;
     Kerek hatso;
 public:
-    Bicikli(double v, int d) : Jarmu(v), elso(d), hatso(d) {}
+    Bicikli(double v, int d) : Jarmu(v), elso(d), hatso(d) {
+        std::cout << "\tBicikli ctor ";
+        elso.kiir();
+    }
+    ~Bicikli() {
+        std::cout << "\tBicikli dtor ";
+        elso.kiir();
+    }
+    Bicikli(const Bicikli& b) : Jarmu(b), elso(b.elso), hatso(b.hatso) {
+        std::cout << "\tBicikli copy ";
+        elso.kiir();
+    }
+
 };
- 
-int main() {
-#if 0
-_(    Szan sz1_obj(1.1, 1);         )
-#else
-_(    Jarmu *jp = new Szan(2.2, 2); )
-_(    delete jp;                    )
+
 #endif
-_(    return 0;                     )
-}
